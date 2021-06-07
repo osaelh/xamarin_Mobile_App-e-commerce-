@@ -1,0 +1,17 @@
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\bin\Debug\netstandard2.0\FoodApp.deps.json
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\bin\Debug\netstandard2.0\FoodApp.dll
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\bin\Debug\netstandard2.0\ref\FoodApp.dll
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\bin\Debug\netstandard2.0\FoodApp.pdb
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.AssemblyInfoInputs.cache
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.AssemblyInfo.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.csproj.CoreCompileInputs.cache
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.dll
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\ref\FoodApp.dll
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.pdb
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.csprojAssemblyReference.cache
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\SignupPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\LoginPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\HomePage.xaml.g.cs
