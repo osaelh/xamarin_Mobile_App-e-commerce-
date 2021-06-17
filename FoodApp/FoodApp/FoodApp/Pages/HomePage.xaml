@@ -10,7 +10,8 @@
 
         <Grid>
             <CollectionView x:Name="CvProducts"
-                            SelectionMode="Single">
+                            SelectionMode="Single"
+                            SelectionChanged="CvProducts_SelectionChanged">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
                                      Span="2" />
@@ -23,7 +24,8 @@
                                FontSize="Medium" />
                         <CollectionView  x:Name="CvCategories"
                                          HeightRequest="130"
-                                         SelectionMode="Single">
+                                         SelectionMode="Single"
+                                         SelectionChanged="CvCategories_SelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <LinearItemsLayout Orientation="Horizontal" />
                             </CollectionView.ItemsLayout>
@@ -43,11 +45,13 @@
                                                        HorizontalOptions="Center">
                                                     <Image Aspect="AspectFill"
                                                            HorizontalOptions="FillAndExpand"
-                                                           VerticalOptions="FillAndExpand" />
+                                                           VerticalOptions="FillAndExpand" 
+                                                           Source="{Binding FullImageUrl}"/>
                                                 </Frame>
                                                 <Label TextColor="#B00905"
                                                        HorizontalTextAlignment="Center"
-                                                       FontSize="Medium" />
+                                                       FontSize="Medium"
+                                                       Text="{Binding name}"/>
                                             </StackLayout>
                                         </Frame>
                                     </StackLayout>
@@ -145,21 +149,22 @@
                                    HorizontalTextAlignment="Center"
                                    HeightRequest="25"
                                    WidthRequest="25"
-                                   TextColor="White" />
+                                   TextColor="White"
+                                   />
                         </Frame>
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapCartIcon" />
+                            <TapGestureRecognizer x:Name="TapCartIcon" Tapped="TapCartIcon_Tapped"/>
                         </Grid.GestureRecognizers>
                     </Grid>
                 </StackLayout>
-                <Image Margin="0,15,0,0"
+                <!-- <Image Margin="0,15,0,0"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"
                        Source="kfc.png"
                        Aspect="AspectFit"
                        Grid.Row="0"
                        Grid.Column="1"
-                       Grid.RowSpan="3" />
+                       Grid.RowSpan="3" /> -->
             </Grid>
             <Grid x:Name="GridOverlay" IsVisible="False"
                   ColumnSpacing="0">
@@ -202,7 +207,7 @@
                                VerticalTextAlignment="Center"
                                FontSize="20" />
                         <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="TapOrders" />
+                            <TapGestureRecognizer x:Name="TapOrders" Tapped="TapOrders_Tapped" />
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                     <StackLayout Spacing="30"

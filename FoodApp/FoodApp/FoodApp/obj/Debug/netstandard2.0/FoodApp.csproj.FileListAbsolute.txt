@@ -11,7 +11,12 @@ C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstanda
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.dll
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\ref\FoodApp.dll
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.pdb
-C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.csprojAssemblyReference.cache
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\SignupPage.xaml.g.cs
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\LoginPage.xaml.g.cs
 C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\HomePage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\ProductsListPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\ProductDetailPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\FoodApp.csprojAssemblyReference.cache
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\CartPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\PlaceOrderPage.xaml.g.cs
+C:\Users\Administrateur\source\repos\FoodApp\FoodApp\FoodApp\obj\Debug\netstandard2.0\Pages\OrdersPage.xaml.g.cs

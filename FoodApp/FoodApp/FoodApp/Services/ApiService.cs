@@ -63,26 +63,38 @@ namespace FoodApp.Services
 
         public async Task<List<Category>> GetCategories()
         {
-            var htpClient = new HttpClient();
-            htpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await htpClient.GetStringAsync(AppSettings.ApiUrl + "api/Categories");
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Categories");
             return JsonConvert.DeserializeObject<List<Category>>(response);
         }
 
         public async Task<Product> GetProductByID(int productId)
         {
-            var htpClient = new HttpClient();
-            htpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await htpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products" + productId);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products/" + productId);
             return JsonConvert.DeserializeObject<Product>(response);
         }
 
-        public async Task<List<Product>> GetProductsByCategory(int categoryId)
+        public async Task<List<ProductByCategory>> GetProductsByCategory(int categoryId)
         {
-            var htpClient = new HttpClient();
-            htpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await htpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products" + categoryId);
-            return JsonConvert.DeserializeObject<List<Product>>(response);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products/ProductsByCategory/" + categoryId);
+            return JsonConvert.DeserializeObject<List<ProductByCategory>>(response);
         }
 
         public async Task<List<PopularProduct>> GetPopularProducts()
@@ -97,13 +109,18 @@ namespace FoodApp.Services
             return JsonConvert.DeserializeObject<List<PopularProduct>>(response);
         }
 
-        public async Task<bool> AddItemToCart(AddToCart addToCart)
+        public async Task<bool> AddItemToCart(ShoppingCartItem shoppingCartItem)
         {
 
-            var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(addToCart);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            var json = JsonConvert.SerializeObject(shoppingCartItem);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var token = Preferences.Get("accessToken", string.Empty);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
             var response = await httpClient.PostAsync(AppSettings.ApiUrl + "api/ShoppingCartItems", content);
             if (!response.IsSuccessStatusCode) return false;
             return true;
@@ -112,7 +129,11 @@ namespace FoodApp.Services
         public async Task<CartSubTotal> GetCartSubTotal(int userId)
         {
 
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Products/PopularProducts" + userId);
             return JsonConvert.DeserializeObject<CartSubTotal>(response);
@@ -121,7 +142,11 @@ namespace FoodApp.Services
         public async Task<List<ShoppingCartItem>> GetShoppingCartItems(int userId)
         {
 
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/ShoppingCartItems/" + userId);
             return JsonConvert.DeserializeObject<List<ShoppingCartItem>>(response);
@@ -131,7 +156,11 @@ namespace FoodApp.Services
         public async Task<TotalCartItem> GetTotalCartItem(int userId)
         {
 
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/ShoppingCartItems/TotalItems/" + userId);
             return JsonConvert.DeserializeObject<TotalCartItem>(response);
@@ -141,7 +170,11 @@ namespace FoodApp.Services
         public async Task<bool> ClearShoppingCart(int userId)
         {
 
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
             var response = await httpClient.DeleteAsync(AppSettings.ApiUrl + "api/ShoppingCartItems/" + userId);
             if (!response.IsSuccessStatusCode) return false;
@@ -152,7 +185,11 @@ namespace FoodApp.Services
         public async Task<OrderResponse> PlaceOrder(Order order)
         {
 
-            var httpClient = new HttpClient();
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
             var json = JsonConvert.SerializeObject(order);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
@@ -165,16 +202,24 @@ namespace FoodApp.Services
 
         public async Task<List<OrderByUser>> GetOrdersByUser(int userId)
         {
-            var htpClient = new HttpClient();
-            htpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await htpClient.GetStringAsync(AppSettings.ApiUrl + "api/Orders/OrdersByUser/" + userId);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Orders/OrdersByUser/" + userId);
             return JsonConvert.DeserializeObject<List<OrderByUser>>(response);
         }
         public async Task<List<Order>> GetOrderDetails(int userId)
         {
-            var htpClient = new HttpClient();
-            htpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
-            var response = await htpClient.GetStringAsync(AppSettings.ApiUrl + "api/Orders/OrdersByUser/" + userId);
+            HttpClientHandler clientHandler = new HttpClientHandler();
+            clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
+            // Pass the handler to httpclient(from you are calling api)
+            HttpClient httpClient = new HttpClient(clientHandler);
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", Preferences.Get("accessToken", string.Empty));
+            var response = await httpClient.GetStringAsync(AppSettings.ApiUrl + "api/Orders/OrdersByUser/" + userId);
             return JsonConvert.DeserializeObject<List<Order>>(response);
         }
     }
